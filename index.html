@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffeff6">
+<title>Happy Birthday น้องเดียร์ 🎂✨</title>
+<style>
+:root{--pink:#ff76a8;--rose:#ff4f91;--purple:#a58bff;--ink:#62465e;--cream:#fffafd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;color:var(--ink);overflow-x:hidden;background:radial-gradient(circle at 15% 15%,#fff 0 5%,transparent 30%),linear-gradient(135deg,#fff0f6,#f4efff 55%,#fff6df)}
+button{font:inherit}
+main{position:relative;min-height:100svh;display:grid;place-items:center;padding:28px 16px;isolation:isolate}
+.glow{position:fixed;width:240px;height:240px;border-radius:50%;filter:blur(50px);opacity:.35;z-index:-1;animation:drift 9s ease-in-out infinite alternate}
+.g1{background:#ff9dc6;top:5%;left:-70px}
+.g2{background:#b5a1ff;right:-80px;bottom:6%;animation-delay:-3s}
+
+/* 🎵 ปุ่มควบคุมเพลงลอยมุมขวาบน */
+.music-control{position:fixed;top:18px;right:18px;z-index:100;background:#ffffffd0;border:1px solid #ffd4e5;border-radius:999px;padding:8px 14px;font-size:0.85rem;cursor:pointer;backdrop-filter:blur(8px);box-shadow:0 4px 12px #a874a320;transition:all .2s ease;display:flex;align-items:center;gap:6px;color:#d84f88;font-weight:600}
+.music-control:hover{transform:scale(1.05);background:#ffffff}
+
+.card{width:min(100%,560px);text-align:center;padding:clamp(24px,6vw,44px) clamp(18px,5vw,38px);border:1px solid #ffffffc9;border-radius:32px;background:#ffffffb8;box-shadow:0 22px 70px #a874a326;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.tag{display:inline-flex;gap:7px;align-items:center;background:#fff0f6;border:1px solid #ffd4e5;color:#d84f88;border-radius:999px;padding:8px 14px;font-size:.85rem;letter-spacing:.02em;animation:pulse 2s infinite}
+h1{font-size:clamp(2.3rem,10vw,4rem);line-height:1.08;margin:22px 0 10px;color:#ff5b98;letter-spacing:-.04em}
+.name{display:block;color:#8d71dc;font-size:clamp(2rem,8vw,3.1rem);margin-top:8px;text-shadow:0 2px 10px #b5a1ff40}
+.subtitle{font-size:1.05rem;line-height:1.8;margin:12px auto 22px;max-width:390px}
+
+/* 🎂 เค้กดุ๊กดิ๊ก */
+.cake{font-size:clamp(4rem,18vw,6.5rem);display:inline-block;filter:drop-shadow(0 10px 8px #eaa3bf42);animation:bob 3s ease-in-out infinite;cursor:pointer;transition:transform .2s}
+.cake:hover{transform:scale(1.15) rotate(5deg)}
+
+.btn{border:0;border-radius:999px;padding:14px 28px;font-weight:750;cursor:pointer;color:white;background:linear-gradient(110deg,#ff70a6,#b18bff);box-shadow:0 9px 22px #d97eb74a;transition:transform .2s,box-shadow .2s;font-size:1rem}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 13px 26px #d97eb766}
+.btn:focus-visible{outline:3px solid #8d71dc;outline-offset:4px}
+.hint{font-size:.82rem;opacity:.72;margin:14px 0 0}
+.letter-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .8s cubic-bezier(.2,.8,.2,1),margin-top .5s;margin-top:0}
+.letter-wrap.open{grid-template-rows:1fr;margin-top:26px}
+.letter-inner{overflow:hidden;min-height:0}
+.letter{background:linear-gradient(145deg,#fffdfd,#fff5fb);border:1px solid #ffe0ed;border-radius:23px;padding:23px 20px;text-align:left;line-height:1.95;box-shadow:inset 0 0 0 5px #fff8fc;position:relative}
+.letter h2{text-align:center;color:#e65d98;margin:0 0 12px;font-size:1.35rem}
+.letter p{margin:0 0 13px}
+.signature{text-align:right;color:#9271d8;font-weight:700;margin-top:18px!important}
+.end-note{font-size:.8rem;opacity:.7;margin-top:22px}
+.floaties{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+.floaty{position:absolute;bottom:-40px;opacity:0;animation:rise var(--dur,9s) linear infinite;animation-delay:var(--delay,0s);left:var(--x,50%);font-size:var(--size,20px)}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
+.confetti i{position:absolute;top:-20px;width:9px;height:14px;border-radius:3px;animation:fall 2.6s ease-in forwards}
+footer{font-size:.78rem;opacity:.65;margin-top:20px}
+
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+@keyframes drift{to{transform:translate(45px,-30px) scale(1.15)}}
+@keyframes rise{0%{transform:translateY(0) rotate(0deg);opacity:0}10%{opacity:.65}90%{opacity:.65}100%{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+@keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(720deg);opacity:.1}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- 🎵 ไฟล์เพลง -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="https://mp3tourl.com/audio/1792304438421-256a7f8f-86ae-4f6e-8542-e1c4a56cdd75.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🔊 ปุ่มเปิด/ปิดเพลงมุมขวาบน -->
+<button class="music-control" id="musicBtn" title="กดเปิด/ปิดเพลง">
+  <span id="musicIcon">🎵</span> <span id="musicText">เปิดเพลง</span>
+</button>
+
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<div class="floaties" aria-hidden="true">
+  <span class="floaty" style="--x:8%;--dur:11s;--delay:-4s;--size:22px">💗</span>
+  <span class="floaty" style="--x:22%;--dur:13s;--delay:-8s;--size:17px">✨</span>
+  <span class="floaty" style="--x:79%;--dur:10s;--delay:-2s;--size:24px">🌸</span>
+  <span class="floaty" style="--x:91%;--dur:14s;--delay:-7s;--size:18px">💖</span>
+  <span class="floaty" style="--x:54%;--dur:12s;--delay:-5s;--size:16px">⭐</span>
+  <span class="floaty" style="--x:39%;--dur:15s;--delay:-10s;--size:21px">🩷</span>
+  <span class="floaty" style="--x:65%;--dur:14s;--delay:-3s;--size:20px">🎀</span>
+</div>
+
+<main>
+  <section class="card" aria-labelledby="title">
+    <div class="tag">🎀 A little surprise for you 🎀</div>
+    <div style="margin-top: 10px;">
+      <span class="cake" title="จิ้มเค้กสิ!">🎂</span>
+    </div>
+    <h1 id="title">Happy Birthday<span class="name">น้องเดียร์ 💖</span></h1>
+    <p class="subtitle">วันนี้เป็นวันพิเศษของคนพิเศษ<br>มีข้อความเล็ก ๆ ที่อยากให้เดียร์ได้อ่านนะ ✨</p>
+    
+    <button class="btn" id="openBtn" aria-expanded="false" aria-controls="letter">💌 เปิดอ่านข้อความพิเศษ</button>
+    <p class="hint" id="hint">แตะปุ่มนี้ แล้วค่อย ๆ อ่านนะ 🌷</p>
+    
+    <div class="letter-wrap" id="letter">
+      <div class="letter-inner">
+        <article class="letter">
+          <h2>ถึงน้องเดียร์ คนพิเศษของเรา 🌷</h2>
+          <p>สุขสันต์วันเกิดนะน้องเดียร์ 🎂💗</p>
+          <p>ขอให้วันเกิดปีนี้เป็นจุดเริ่มต้นของเรื่องราวดี ๆ ขอให้เดียร์ได้พบเจอแต่คนที่ใจดีกับเดียร์ มีรอยยิ้มในทุก ๆ วัน และมีความสุขกับเรื่องเล็ก ๆ รอบตัวเสมอ</p>
+          <p>ถ้าวันไหนเหนื่อยหรือเจอเรื่องที่ทำให้ไม่สบายใจ อยากให้รู้ไว้ว่ายังมีวันพรุ่งนี้ให้เริ่มต้นใหม่ได้เสมอ ขอให้เดียร์ใจดีกับตัวเองเยอะ ๆ ภูมิใจในตัวเองให้มาก ๆ และอย่าลืมว่าตัวเดียร์เองก็มีคุณค่าในแบบที่เป็นนะ 🫶</p>
+          <p>ขอให้สิ่งที่ตั้งใจค่อย ๆ เป็นจริง ได้ทำในสิ่งที่รัก ได้กินของอร่อย ได้หัวเราะจนปวดแก้ม และมีคนดี ๆ อยู่ข้าง ๆ ในวันที่ต้องการกำลังใจ</p>
+          <p>ขอบคุณที่เป็นน้องเดียร์ในแบบที่เป็น ขอให้โลกใจดีกับเดียร์มาก ๆ ในปีนี้และทุก ๆ ปีเลยนะ ขอให้รอยยิ้มสดใสของเดียร์อยู่กับเดียร์ไปนาน ๆ 🌈✨</p>
+          <p>ข้อความนี้อาจเป็นเพียงคำอวยพรเล็ก ๆ แต่ตั้งใจส่งความรู้สึกดี ๆ ให้เดียร์จากใจเลยนะ 💕</p>
+          <p class="signature">สุขสันต์วันเกิดนะคนพิเศษ<br>ขอให้วันนี้และทุกวันเต็มไปด้วยความรัก 💖</p>
+        </article>
+      </div>
+    </div>
+    
+    <p class="end-note">made with 💗 just for น้องเดียร์</p>
+    <footer>ขอให้วันนี้มีแต่รอยยิ้มและความทรงจำดี ๆ ✨</footer>
+  </section>
+</main>
+
+<div class="confetti" id="confetti" aria-hidden="true"></div>
+
+<script>
+const btn = document.getElementById('openBtn');
+const letter = document.getElementById('letter');
+const hint = document.getElementById('hint');
+const bgMusic = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+const musicIcon = document.getElementById('musicIcon');
+const musicText = document.getElementById('musicText');
+
+let opened = false;
+let isPlaying = false;
+
+// 🔉 ตั้งความดังเพลงไว้ที่ 30% (0.3) เบากำลังดีไม่ตกใจ
+bgMusic.volume = 0.1;
+
+function toggleMusic() {
+  if (isPlaying) {
+    bgMusic.pause();
+    isPlaying = false;
+    musicIcon.textContent = '🔇';
+    musicText.textContent = 'ปิดเพลงอยู่';
+  } else {
+    bgMusic.play().then(() => {
+      isPlaying = true;
+      musicIcon.textContent = '🎵';
+      musicText.textContent = 'กำลังเล่นเพลง';
+    }).catch(err => console.log(err));
+  }
+}
+
+musicBtn.addEventListener('click', toggleMusic);
+
+btn.addEventListener('click', () => {
+  opened = !opened;
+  letter.classList.toggle('open', opened);
+  btn.setAttribute('aria-expanded', String(opened));
+  btn.innerHTML = opened ? '💗 ปิดจดหมาย' : '💌 เปิดอ่านข้อความพิเศษ';
+  hint.textContent = opened ? 'ขอให้คำอวยพรนี้ทำให้ยิ้มได้นะ 🥹' : 'แตะปุ่มนี้ แล้วค่อย ๆ อ่านนะ 🌷';
+  
+  if (opened) {
+    // ถ้ายังไม่ได้เล่นเพลง ให้เริ่มเล่นเมื่อเปิดจดหมาย
+    if (!isPlaying) {
+      toggleMusic();
+    }
+    
+    burst();
+    setTimeout(() => letter.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 180);
+  }
+});
+
+function burst() {
+  const holder = document.getElementById('confetti');
+  const colors = ['#ff75a8', '#b18bff', '#ffd166', '#7ddfc3', '#ff9f70', '#f7a8d8'];
+  for (let i = 0; i < 48; i++) {
+    const el = document.createElement('i');
+    el.style.left = (Math.random() * 100) + '%';
+    el.style.background = colors[Math.floor(Math.random() * colors.length)];
+    el.style.setProperty('--dx', ((Math.random() - .5) * 240) + 'px');
+    el.style.animationDelay = (Math.random() * .35) + 's';
+    el.style.transform = 'rotate(' + (Math.random() * 180) + 'deg)';
+    holder.appendChild(el);
+    setTimeout(() => el.remove(), 3300);
+  }
+}
+</script>
+</body>
+</html>
